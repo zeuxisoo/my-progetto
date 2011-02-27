@@ -9,7 +9,7 @@ WORKS_ROOT = '%s/static/works' % WWW_ROOT
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'library'))
 
 import yaml
-from bottle import route, run, debug, template, static_file, abort
+from bottle import route, run, debug, template, static_file, abort, default_app
 
 @route('/')
 def index():
@@ -45,3 +45,6 @@ def static_folder(path):
 if __name__ == "__main__":
 	debug(True)
 	run(host='localhost', port=8081, reloader=True)
+else:
+	#os.chdir(os.path.dirname(__file__))
+	application = default_app()
