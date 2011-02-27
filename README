@@ -12,10 +12,16 @@ Installation
 - Browser http://localhost:8081/
 
 Add Demo
+
 - Create folder named "1" to "static/works" like "static/works/1"
 - Copy screen capture to "static/works/1" and named 1.png … N.png
 - Using resize tools to create demo image
 - that all ... 
+
+Add Work Info
+- Copy "tools/default-info.yaml" to "static/works/[works-id]"
+- And rename to "info.yaml"
+- that all ...
 
 Resize Tools
 
