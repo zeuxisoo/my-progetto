@@ -25,8 +25,8 @@ Add Work Info
 
 Resize Tools
 
-- Copy resize.py to root folder
-- Type the command "python resize.py"
-  - It will create two image automatically
+- In root directory, type commond "bash tools/run.sh"
+  - It will remove all thumb image
+  - And then create two image automatically
     1. 300 x 150 (named: thumb_*)
     2. 750 x auto height (named: 1 ... N)
