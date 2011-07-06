@@ -1,6 +1,6 @@
 import os, Image
 
-works_root = os.path.join(os.path.abspath(os.path.dirname(__file__)), "static/works")
+works_root = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../static/works")
 
 def resize(file_path, width_size, is_thumb = False):
 	image = Image.open(file_path)
@@ -25,11 +25,12 @@ def resize(file_path, width_size, is_thumb = False):
 folders = [folder for folder in os.listdir(works_root) if folder[0] != '.']
 
 for folder in folders:
-	for image in os.listdir("%s/%s" % (works_root, folder)):
-		if image[0] != "." and image[:6] != "thumb_":
-			file_path = "%s/%s/%s" % (works_root, folder, image)
-
-			if file_path is not None:
-				print "O: %s" % file_path
-				print "B: %s" % resize(file_path, 780)
-				print "T: %s" % resize(file_path, 300, True)
+	if folder[-4:] != "yaml":
+		for image in os.listdir("%s/%s" % (works_root, folder)):
+			if image[0] != "." and image[:6] != "thumb_" and image[-4:] != "yaml":
+				file_path = "%s/%s/%s" % (works_root, folder, image)
+	
+				if file_path is not None:
+					print "O: %s" % file_path
+					print "B: %s" % resize(file_path, 780)
+					print "T: %s" % resize(file_path, 300, True)
