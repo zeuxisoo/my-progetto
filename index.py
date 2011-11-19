@@ -42,6 +42,10 @@ def work(id):
 def static_folder(path):
 	return static_file(path, root=os.path.join(WWW_ROOT, 'static'))
 
+@route('/robots.txt')
+def robots_file():
+	return static_file('robots.txt', root=WWW_ROOT, mimetype='text/plain')
+
 if __name__ == "__main__":
 	debug(True)
 	run(host='localhost', port=8081, reloader=True)
