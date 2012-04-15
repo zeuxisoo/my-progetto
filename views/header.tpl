@@ -21,7 +21,7 @@
 			<li>
 				My Projects
 				<ul class="sub">
-					<li><a href="https://github.com/thinker" target="_blank">GitHub</a></li>
+					<li><a href="https://github.com/zeuxisoo" target="_blank">GitHub</a></li>
 					<li><a href="http://code.google.com/p/seekstudio" target="_blank">GoogleCode</a></li>
 					<li><a href="http://code.google.com/p/seekfile" target="_blank">GoogleCode (*Others)</a></li>
 					<li><a href="http://seekdiary.sourceforge.net/" target="_blank">SourceForge</a></li>
