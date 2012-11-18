@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
 <title>Zeuxis's Profile</title>
 <link rel="shortcut icon" href="/favicon.ico">
 <link  rel="stylesheet" type="text/css" href="/static/stylesheet/reset.css" />
