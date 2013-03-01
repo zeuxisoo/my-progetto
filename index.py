@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os, sys
+import os, sys, hashlib
 
 try:
 	import yaml
@@ -8,19 +8,37 @@ except:
 	sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'library'))
 	import yaml
 
-from bottle import route, run, debug, template, static_file, abort, default_app
-
+from bottle import route, run, debug, template, static_file, abort, default_app, hook
+from bottle import request, HTTPError
+	
 WWW_ROOT   = os.path.abspath(os.path.dirname(__file__))
 WORKS_ROOT = '%s/static/works' % WWW_ROOT
 CONFIG     = yaml.load(file(WWW_ROOT + '/config.yaml', 'r'))
 
+# custom the auth_basic decorator (ref: 0.12-dev)
+def auth_basic(realm="private", text="Access denied"):
+	def decorator(func):
+		def wrapper(*a, **ka):
+			if CONFIG['protect']['status']:
+				user, password = request.auth or (None, "")
+				password = hashlib.sha256(password).hexdigest()
+				if user is None or not (user == CONFIG['protect']['username'] and password == CONFIG['protect']['password']):
+					err = HTTPError(401, text)
+					err.add_header('WWW-Authenticate', 'Basic realm="%s"' % realm)
+					return err
+			return func(*a, **ka)
+		return wrapper
+	return decorator
+
 @route('/')
+@auth_basic()
 def index():
 	folders = sorted([int(folder) for folder in os.listdir(WORKS_ROOT) if folder[0] != '.' and not folder.endswith('.yaml')])
 	folders.reverse()
 	return template("index", config = CONFIG, folders = folders)
 
 @route('/work/:id#[0-9]+#')
+@auth_basic()
 def work(id):
 	image_folder_path = "%s/%s" % (WORKS_ROOT, int(id))
 
