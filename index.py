@@ -2,20 +2,23 @@
 # -*- coding: utf-8 -*-
 import os, sys
 
-TITLE = "Zeuxis's"
-WWW_ROOT = os.path.abspath(os.path.dirname(__file__))
-WORKS_ROOT = '%s/static/works' % WWW_ROOT
+try:
+	import yaml
+except:
+	sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'library'))
+	import yaml
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'library'))
-
-import yaml
 from bottle import route, run, debug, template, static_file, abort, default_app
+
+WWW_ROOT   = os.path.abspath(os.path.dirname(__file__))
+WORKS_ROOT = '%s/static/works' % WWW_ROOT
+CONFIG     = yaml.load(file(WWW_ROOT + '/config.yaml', 'r'))
 
 @route('/')
 def index():
 	folders = sorted([int(folder) for folder in os.listdir(WORKS_ROOT) if folder[0] != '.' and not folder.endswith('.yaml')])
 	folders.reverse()
-	return template("index", folders = folders, title = TITLE)
+	return template("index", config = CONFIG, folders = folders)
 
 @route('/work/:id#[0-9]+#')
 def work(id):
@@ -30,10 +33,10 @@ def work(id):
 
 		return template(
 			"work", 
+			config = CONFIG,
 			images = [image for image in os.listdir(image_folder_path) if image[0] != '.' and image[:6] != 'thumb_' and not image.endswith('.yaml')], 
 			id = int(id),
 			info = info,
-			title = TITLE
 		)
 	else:
 		abort(401, "Sorry, Access denied")

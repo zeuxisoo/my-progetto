@@ -1,4 +1,4 @@
-%include header title = title
+%include header config = config
 <div class="works">
 	<ul class="clear-fix works-list">
 	%for folder in folders:

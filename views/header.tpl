@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="robots" content="noindex" />
-<title>Zeuxis's Profile</title>
+<title>{{ config['title'] }} Profile</title>
+<meta name="robots" content="noindex,nofollow" />
 <link rel="shortcut icon" href="/favicon.ico">
 <link  rel="stylesheet" type="text/css" href="/static/stylesheet/reset.css" />
 <link  rel="stylesheet" type="text/css" href="/static/stylesheet/jquery.fancybox.css" />
@@ -22,15 +22,16 @@
 			<li>
 				My Projects
 				<ul class="sub">
-					<li><a href="https://github.com/zeuxisoo" target="_blank">GitHub</a></li>
-					<li><a href="http://code.google.com/p/seekstudio" target="_blank">GoogleCode</a></li>
-					<li><a href="http://code.google.com/p/seekfile" target="_blank">GoogleCode (*Others)</a></li>
-					<li><a href="http://seekdiary.sourceforge.net/" target="_blank">SourceForge</a></li>
+					% for project in config['projects']:
+						% for name in project.keys():
+							<li><a href="{{ project[name] }}" target="_blank">{{ name }}</a></li>
+						% end
+					% end
 				</ul>
 			</li>
 			<li>
 				Contact Me
-				<div class="sub grep"><img src="/static/image/contact.png" alt="contact" /></div>
+				<div class="sub grep"><img src="{{ config['contact_image'] }}" alt="contact" /></div>
 			</li>
 			<li>
 				Powered By
@@ -41,7 +42,7 @@
 </div>
 <div id="wrapper">
 	<div class="content">
-		<h1 class="title">{{title}}</h1>
+		<h1 class="title">{{ config['title'] }}</h1>
 		
 			
 		

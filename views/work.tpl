@@ -1,4 +1,4 @@
-%include header.tpl title = title
+%include header.tpl config = config
 <div class="works">
 	<div class="bar clear-fix">
 		<ul class="clear-fix">
