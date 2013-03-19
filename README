@@ -16,7 +16,7 @@ Add Demo
 - Create folder named "1" to "static/works" like "static/works/1"
 - Copy screen capture to "static/works/1" and named 1.png … N.png
 - Using resize tools to create demo image
-- that all ... 
+- that all ...
 
 Add Work Info
 - Copy "tools/default-info.yaml" to "static/works/[works-id]"
@@ -30,3 +30,9 @@ Resize Tools
   - And then create two image automatically
     1. 300 x 150 (named: thumb_*)
     2. 750 x auto height (named: 1 ... N)
+
+Generate static profile website
+
+- ran `python tools/generator.py` in console
+- the static content will generated into `tools/generate` directory
+- deploy all files to your host from `tools/generate`
