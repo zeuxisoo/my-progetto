@@ -18,7 +18,7 @@
 	<div class="menu">
 		<ul>
 			<li class="head"><a href='/'>Home</a></li>
-			<li><a href="http://studio.zeuik.com/" target="_blank">Blog</a></li>
+			<li><a href="{{ config['site_url'] }}" target="_blank">Blog</a></li>
 			<li>
 				My Projects
 				<ul class="sub">
@@ -43,6 +43,3 @@
 <div id="wrapper">
 	<div class="content">
 		<h1 class="title">{{ config['title'] }}</h1>
-		
-			
-		
