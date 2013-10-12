@@ -1,18 +1,18 @@
 import os, Image
 
-works_root = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../static/works")
+works_root = os.path.realpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), "../static/works"))
 
 def resize(file_path, width_size, is_thumb = False):
 	image = Image.open(file_path)
-	
+
 	width = width_size
 	ratio = float(width)/image.size[0]
 	height= int(image.size[1]*ratio)
-	
+
 	if is_thumb is True:
 		file_name = "thumb_%s" % os.path.basename(file_path)
 		file_path = "%s/%s" % (os.path.dirname(file_path), file_name)
-		
+
 	try:
 		if is_thumb is True:
 			image.resize( (width, height), Image.BILINEAR ).crop((0, 0, 300, 150)).save(file_path)
@@ -29,7 +29,7 @@ for folder in folders:
 		for image in os.listdir("%s/%s" % (works_root, folder)):
 			if image[0] != "." and image[:6] != "thumb_" and image[-4:] != "yaml":
 				file_path = "%s/%s/%s" % (works_root, folder, image)
-	
+
 				if file_path is not None:
 					print "O: %s" % file_path
 					print "B: %s" % resize(file_path, 780)
