@@ -1,24 +1,19 @@
 %include header.tpl config = config
-<div class="works">
-	<div class="bar clear-fix">
-		<ul class="clear-fix">
-			<li class="back-page head">&lsaquo;&lsaquo; Back</li>
-			%if info['site'] is not None:
-				%if info['link'] is not None:
-					<li><a href="{{info['link']}}" target="_blank">{{info['site']}}</a></li>
-				%else:
-					<li>{{info['site']}}</li>
-			%end
-		</ul>
-	</div>
-	<ul class="clear-fix works-list">
-	%for image in images:
-		<li>
-			<a href="/static/works/{{id}}/{{image}}" rel="group">
-				<img src="/static/works/{{id}}/thumb_{{image}}" alt="preview-{{id}}" />
-			</a>
-		</li>
-	%end
-	</ul>
+<div class="container">
+    %if info['site'] is not None:
+        %if info['link'] is not None:
+            <h3><a href="">{{info['site']}}</a></h3>
+        %else:
+            <h3>{{info['site']}}</h3>
+    %end
+    <div class="row">
+        %for image in images:
+            <div class="col-xs-6 col-md-3">
+                <a href="/static/works/{{id}}/{{image}}" class="thumbnail fancybox" rel="group">
+                    <img src="/static/works/{{id}}/thumb_{{image}}" alt="{{info['site']}}-{{id}}" />
+                </a>
+            </div>
+        %end
+    </div>
 </div>
-%include footer.tpl
+%include footer.tpl config = config
