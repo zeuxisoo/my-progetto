@@ -6,9 +6,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ config['title'] }} Profile</title>
-<link href="/static/client/css/default.css" rel="stylesheet">
 <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" />
+<link href="/static/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet">
+<link href="/static/client/css/default.css" rel="stylesheet">
 <script type="text/javascript" src="/static/vendor/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
