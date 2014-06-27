@@ -10,3 +10,11 @@ body {
     color: #777;
     border-top: 1px solid #e5e5e5;
 }
+
+a.thumbnail:hover {
+    -webkit-transform: scale(1.08) rotate(-2deg);
+    -moz-transform: scale(1.08) rotate(-2deg);
+    -o-transform: scale(1.08) rotate(-2deg);
+    -ms-transform: scale(1.08) rotate(-2deg);
+    transform: scale(1.08) rotate(-2deg);
+}
