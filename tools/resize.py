@@ -1,4 +1,5 @@
-import os, Image
+import os
+from PIL import Image
 
 works_root = os.path.realpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), "../static/works"))
 
