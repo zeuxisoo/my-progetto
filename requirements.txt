@@ -1,2 +1,3 @@
-Pillow
 bottle
+Pillow
+PyYAML
