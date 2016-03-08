@@ -2,7 +2,8 @@
 
 title: "Projects"
 site_url: http://www.not.im/
-projects:
+labs_url: http://labs.not.im/
+others:
     - Github               : http://github.com/zeuxisoo
     - Google Code          : http://code.google.com/p/seekstudio
     - Google Code (*Others): http://code.google.com/p/seekfile

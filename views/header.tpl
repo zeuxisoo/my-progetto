@@ -29,12 +29,13 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="{{ config['site_url'] }}">Blog</a></li>
+                <li><a href="{{ config['labs_url'] }}">Labs</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ohters <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        % for project in config['projects']:
-                            % for name in project.keys():
-                                <li><a href="{{ project[name] }}">{{ name }}</a></li>
+                        % for other in config['others']:
+                            % for name in other.keys():
+                                <li><a href="{{ other[name] }}">{{ name }}</a></li>
                             % end
                         % end
                     </ul>
