@@ -17,3 +17,6 @@ server:
 
 generate:
 	@python tools/generator.py
+
+deploy:
+	@source venv/bin/activate && fab build deploy

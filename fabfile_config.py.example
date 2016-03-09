@@ -1,0 +1,11 @@
+config = {
+    "fabric": {
+        "hosts"       : ['user@host:port'],
+        "key_filename": "/path/to/ssh/private.key"
+    },
+
+    "rsync": {
+        "remote_dir": "/path/to/remote/directory",
+        "local_dir" : "./tools/generate/"
+    }
+}

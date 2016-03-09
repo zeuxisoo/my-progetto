@@ -8,3 +8,4 @@
 /tools/generate
 /venv
 
+fabfile_config.py
