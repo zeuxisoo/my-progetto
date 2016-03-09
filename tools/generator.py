@@ -33,6 +33,11 @@ def copy_directory(from_path, to_path):
 		shutil.rmtree(to_path)
 	shutil.copytree(from_path, to_path)
 
+def copy_file(from_path, to_path):
+	if os.path.exists(to_path):
+		os.remove(to_path)
+	shutil.copyfile(from_path, to_path)
+
 def load_index():
 	folders = sorted([int(folder) for folder in os.listdir(WORKS_ROOT) if folder[0] != '.' and not folder.endswith('.yaml')])
 	folders.reverse()
@@ -73,6 +78,7 @@ def generate():
 		writer(work_directory + '/index.html', works[work])
 
 	copy_directory(WWW_ROOT+'/static', GENERATE_ROOT+'/static')
+	copy_file(WWW_ROOT+'/robots.txt', GENERATE_ROOT+'/robots.txt')
 
 if __name__ == "__main__":
 	generate()
