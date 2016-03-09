@@ -3,7 +3,8 @@
 *.pyc
 *.db
 .DS_Store
-config.py
-works/
-venv/
-tools/generate/
+
+/static/works
+/tools/generate
+/venv
+
