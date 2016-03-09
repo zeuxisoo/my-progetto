@@ -1,23 +1,18 @@
-### Requestments
+# My Progetto
 
-- Bottle (>=0.8)
-- PyYaml (inclued 3.08)
-- PIL    (for resize tools)
+	A static generator for demo your projects
 
-### Installation
+## Installation
 
-Install requirements 
+Install requirements
 
-	virtualenv --no-site-package venv
-	source venv/bin/activate
-	
-	pip install -r requirements.txt
+	make venv
 
-Create folder `works` to `static/works`
+Create folder `works` in `static` directory
 
 	mkdir static/works
 
-Copy `tools/default-info.yaml` to `static/works`
+Copy `tools/default-info.yaml` to `static/works` directory
 
 	cp -rf tools/default-info.yaml static/works/
 
@@ -26,48 +21,51 @@ Run preview server
 	make server
 
 Browse website
-	
+
 	open http://localhost:8081/
 
-### Add Demo
+## Add Demo
 
-Create folder named `1` to `static/works` like `static/works/1`
+Create folder named `1` in `static/works`
 
 	mkdir static/works/1
 
-Copy screen capture to `static/works/1` and named `1.png` **…** `N.png`
+Copy screen capture to `static/works/1` and named `01.png`, `02.png` to `NN.png`
 
-	cp path/to/screens/*.png static/works/1/*
+	mv path/to/screenshots/*.png static/works/1/*
 
-Create demo image by `resize tools`
+Generate and resize the images
 
 	make resize
 
-### Add Work Infomation
+## Add demo infomation
 
-Copy `tools/default-info.yaml` to `static/works/[works-id]`
+Copy `tools/default-info.yaml` to `static/works/[WORK]`
 
-	cp tools/default-info.yaml static/works/[works-id]/
+	cp tools/default-info.yaml static/works/[WORK]/
 
-Rename to `info.yaml` and edit it
+Rename `default-info.yaml` to `info.yaml` and edit it
 
-	mv static/works/[works-id]/default-info.yaml static/works/[works-id]/info.yaml
+	mv static/works/[WORK]/default-info.yaml static/works/[WORK]/info.yaml
 
-### Resize Tools
+	vim static/works/[WORK]/info.yaml
 
-In root directory, type command `make resize`
+## Generate static website
 
-1. It will remove all thumb images
-2. And then create two thumbnail image automatically
+Ran the following commands in console
 
-Size of two thumb image
- 
-1. 300 x 150 and named thumb_*
-2. 750 x auto height and named 1 ... N
-
-### Generate static profile website
-
-In root directory, ran `make generate` in console
+	make generate
 
 - The static content will generated into `tools/generate` directory
-- Deploy all files to your host from `tools/generate`
+
+## Deploy static website
+
+Copy deploy config and edit it
+
+	cp fabfile_config.py.example fabfile_config.py
+
+	vim fabfile_config.py
+
+Ran the commands to deploy
+
+	make deploy

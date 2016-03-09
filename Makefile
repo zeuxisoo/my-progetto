@@ -10,10 +10,10 @@ venv:
 
 resize:
 	@rm -Rf static/works/*/thumb_*
-	@python tools/resize.py
+	@source venv/bin/activate && python tools/resize.py
 
 server:
-	@python index.py
+	@source venv/bin/activate && python index.py
 
 generate:
 	@python tools/generator.py
