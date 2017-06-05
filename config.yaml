@@ -1,8 +1,8 @@
 # default password 12345678
 
 title: "Projects"
-site_url: http://www.not.im/
-labs_url: http://labs.not.im/
+site_url: https://www.not.im/
+lab_url: https://lab.not.im/
 others:
     - Github               : http://github.com/zeuxisoo
     - Google Code          : http://code.google.com/p/seekstudio

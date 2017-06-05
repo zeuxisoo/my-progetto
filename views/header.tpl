@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="{{ config['site_url'] }}">Blog</a></li>
-                <li><a href="{{ config['labs_url'] }}">Labs</a></li>
+                <li><a href="{{ config['lab_url'] }}">Lab</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ohters <b class="caret"></b></a>
                     <ul class="dropdown-menu">
