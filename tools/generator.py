@@ -59,7 +59,7 @@ def load_works():
 				works[folder] = template(
 					"work",
 					config = CONFIG,
-					images = [image for image in os.listdir(image_folder_path) if image[0] != '.' and image[:6] != 'thumb_' and not image.endswith('.yaml')],
+					images = sorted([image for image in os.listdir(image_folder_path) if image[0] != '.' and image[:6] != 'thumb_' and not image.endswith('.yaml')]),
 					id = folder,
 					info = info,
 				)
@@ -72,6 +72,7 @@ def generate():
 	writer(GENERATE_ROOT + '/index.html', load_index())
 
 	works = load_works()
+
 	for work in works:
 		work_directory = GENERATE_ROOT + '/work/' + work
 		create_directory(work_directory)

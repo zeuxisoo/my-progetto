@@ -10,7 +10,7 @@ except:
 
 from bottle import route, run, debug, template, static_file, abort, default_app, hook
 from bottle import request, HTTPError
-	
+
 WWW_ROOT   = os.path.abspath(os.path.dirname(__file__))
 WORKS_ROOT = '%s/static/works' % WWW_ROOT
 CONFIG     = yaml.load(file(WWW_ROOT + '/config.yaml', 'r'))
@@ -43,16 +43,16 @@ def work(id):
 	image_folder_path = "%s/%s" % (WORKS_ROOT, int(id))
 
 	if os.path.exists(image_folder_path) and os.path.isdir(image_folder_path):
-		
+
 		info = yaml.load(file("%s/default-info.yaml" % WORKS_ROOT, 'r'))
 		yaml_path = "%s/info.yaml" % image_folder_path
 		if os.path.exists(yaml_path) and os.path.isfile(yaml_path):
 			info = yaml.load(file(yaml_path, 'r'))
 
 		return template(
-			"work", 
+			"work",
 			config = CONFIG,
-			images = [image for image in os.listdir(image_folder_path) if image[0] != '.' and image[:6] != 'thumb_' and not image.endswith('.yaml')], 
+			images = sorted([image for image in os.listdir(image_folder_path) if image[0] != '.' and image[:6] != 'thumb_' and not image.endswith('.yaml')]),
 			id = int(id),
 			info = info,
 		)
