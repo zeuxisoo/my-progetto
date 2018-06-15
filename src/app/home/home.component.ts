@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Project } from '../common/models/project.model';
+import { ProjectService } from '../common/services/project.service';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    public projects: Array<Project>;
 
-  ngOnInit() {
-  }
+    constructor(
+        private projectService: ProjectService
+    ) { }
+
+    ngOnInit() {
+        this.projectService
+            .getProjects()
+            .subscribe(projects => {
+                this.projects = projects;
+            });
+    }
 
 }

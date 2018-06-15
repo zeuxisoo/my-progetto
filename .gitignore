@@ -37,3 +37,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Custom
+/src/assets/data/works
+/src/assets/data/projects.json

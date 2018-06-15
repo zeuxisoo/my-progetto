@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './project/project.component';
 
+import { SharedModule } from './common/shared.module';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -16,6 +18,7 @@ import { ProjectComponent } from './project/project.component';
     ],
     imports: [
         BrowserModule,
+        SharedModule,
         RouterModule,
         RouterModule.forRoot(appRoutes)
     ],
