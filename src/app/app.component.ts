@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    ngAfterViewInit() {
+        $("[data-fancybox]").fancybox({
+            animationEffect: 'zoom',
+            transitionEffect: 'fade',
+            buttons: ["zoom", "thumbs", "close"],
+            arrows: true,
+            infobar: true
+        });
+    }
+
 }
