@@ -1,7 +1,9 @@
 <div id="home">
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-2" *ngFor="let project of projects">
-            <img class="img-thumbnail" src="http://placehold.it/300x150" alt="project-name">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3" *ngFor="let project of projects">
+            <a routerLink="/p/{{ project.id }}">
+                <img class="img-thumbnail project-thumb" src="http://placehold.it/300x150" alt="project-name">
+            </a>
         </div>
     </div>
 </div>
