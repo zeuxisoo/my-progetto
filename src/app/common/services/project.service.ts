@@ -19,4 +19,12 @@ export class ProjectService extends BaseService {
         );
     }
 
+    public getProject({ id }): Observable<any> {
+        return this.getProjects().pipe(
+            map(projects => {
+                return projects.filter(project => project.id == id)[0]
+            })
+        );
+    }
+
 }

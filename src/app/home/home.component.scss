@@ -1,15 +1,1 @@
-@keyframes rotate_scale {
-    from {
-        transform: scale(1) rotate(0deg);
-    }
-    to {
-        transform: scale(1.08) rotate(-2deg);
-    }
-}
 
-.project-thumb:hover {
-    animation-duration: 0.5s;
-    animation-name: rotate_scale;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
