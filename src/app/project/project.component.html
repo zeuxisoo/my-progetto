@@ -1,5 +1,5 @@
 <div id="project" class="mt-3">
-    <h3>{{ project?.title }}</h3>
+    <h3 [innerHTML]="project?.title | titleLink: project?.link"></h3>
     <div class="text-muted mt-2 mb-2 project-description" *ngIf="project?.description">
         {{ project?.description }}
     </div>
