@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3" *ngFor="let project of projects">
             <a routerLink="/p/{{ project.id }}">
-                <img class="img-thumbnail project-thumb" src="http://placehold.it/300x150" alt="project-name">
+                <img class="img-thumbnail project-thumb" src="/assets/data/works/{{ project.id }}/{{ project.photo.thumbs[0] }}" alt="{{ project.title }}">
             </a>
         </div>
     </div>
