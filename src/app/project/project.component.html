@@ -1,15 +1,21 @@
 <div id="project" class="mt-3">
-    <h3 [innerHTML]="project?.title | titleLink: project?.link"></h3>
-    <div class="text-muted mt-2 mb-2 project-description" *ngIf="project?.description">
-        {{ project?.description }}
-    </div>
-    <div class="row">
-        <div
-            class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3"
-            *ngFor="let thumb of project?.photo.thumbs; index as i">
-            <a href="{{ project?.photo.larges[i] }}" data-fancybox="gallery">
-                <img class="img-thumbnail project-thumb" src="{{ thumb }}" alt="{{ thumb }}">
-            </a>
+    <div *ngIf="project; let project; else loading">
+        <h3 [innerHTML]="project.title | titleLink: project.link"></h3>
+        <div class="text-muted mt-2 mb-2 project-description" *ngIf="project.description">
+            {{ project.description }}
+        </div>
+        <div class="row">
+            <div
+                class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3"
+                *ngFor="let thumb of project.photo.thumbs; index as i">
+                <a href="{{ project.photo.larges[i] }}" data-fancybox="gallery">
+                    <img class="img-thumbnail project-thumb" src="{{ thumb }}" alt="{{ thumb }}">
+                </a>
+            </div>
         </div>
     </div>
+
+    <ng-template #loading>
+        Loading project data ... ...
+    </ng-template>
 </div>

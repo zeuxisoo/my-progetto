@@ -26,7 +26,7 @@ export class ProjectComponent implements OnInit {
                 id: id
             })
             .subscribe(project => {
-                this.project = project
+                this.project = project;
             });
     }
 
