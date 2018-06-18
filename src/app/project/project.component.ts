@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Project } from '../common/models/project.model';
 import { ProjectService } from '../common/services/project.service';
@@ -15,6 +16,7 @@ export class ProjectComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
+        private location: Location,
         private projectService: ProjectService
     ) { }
 
@@ -28,6 +30,10 @@ export class ProjectComponent implements OnInit {
             .subscribe(project => {
                 this.project = project;
             });
+    }
+
+    previousPage() {
+        this.location.back();
     }
 
 }
