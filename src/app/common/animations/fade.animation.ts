@@ -46,3 +46,45 @@ export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
         ])
     ])
 ]);
+
+export const fadeSlideUpAnimation = trigger('fadeSlideUpAnimation', [
+    transition('* => *', [
+        query(':enter', [
+            style({ opacity: 0 })
+        ], { optional: true }),
+
+        group([
+            query(':leave', [
+                animate('1s 0s', keyframes([
+                    style({
+                        opacity: 1,
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 0
+                    }),
+                    style({
+                        opacity: 0,
+                        transform: 'translate3d(0, -100%, 0)',
+                        offset: 1
+                    })
+                ]))
+            ], { optional: true }),
+
+            query(':enter', [
+                style({ opacity: 0 }),
+
+                animate('1s 0s', keyframes([
+                    style({
+                        opacity: 0,
+                        transform: 'translate3d(0, 200%, 0)',
+                        offset: 0
+                    }),
+                    style({
+                        opacity: 1,
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 1
+                    })
+                ]))
+            ], { optional: true })
+        ])
+    ])
+])
