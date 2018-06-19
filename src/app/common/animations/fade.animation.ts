@@ -42,6 +42,27 @@ const fadeSlideUpIn = animation(
     }
 );
 
+const fadeSlideDownIn = animation(
+    animate('1s 1s', keyframes([
+        style({
+            opacity: 0,
+            transform: 'translate3d(0, {{ from }}, 0)',
+            offset: 0
+        }),
+        style({
+            opacity: 1,
+            transform: 'translate3d(0, {{ to }}, 0)',
+            offset: 1
+        })
+    ])),
+    {
+        params: {
+            from: '-100%',
+            to: '0'
+        }
+    }
+);
+
 export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
     // Fade + Slide up/down to original position
     transition('* => *', [
@@ -54,36 +75,24 @@ export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
         group([
             // Fade + Slide up => back
             query(':leave', [
-                animate('1s 0s', keyframes([
-                    style({
-                        opacity: 1,
-                        transform: 'translate3d(0, 0, 0)',
-                        offset: 0
-                    }),
-                    style({
-                        opacity: 0,
-                        transform: 'translate3d(0, -100%, 0)',
-                        offset: 1
-                    })
-                ]))
+                useAnimation(fadeSlideUpOut, {
+                    params: {
+                        from: '0',
+                        to: '-100%',
+                    }
+                })
             ], { optional: true }),
 
             // Fade + Slide down => in
             query(':enter', [
                 style({ opacity: 0 }),
 
-                animate('1s 1s', keyframes([
-                    style({
-                        opacity: 0,
-                        transform: 'translate3d(0, -100%, 0)',
-                        offset: 0
-                    }),
-                    style({
-                        opacity: 1,
-                        transform: 'translate3d(0, 0, 0)',
-                        offset: 1
-                    })
-                ]))
+                useAnimation(fadeSlideDownIn, {
+                    params: {
+                        from: '-100%',
+                        to: '0'
+                    }
+                }, { optional: true })
             ], { optional: true }),
         ])
     ])
