@@ -7,13 +7,13 @@ import { TitleLinkPipe } from './pipes/project.pipe';
 
 @NgModule({
     imports: [
-        HttpClientModule
+        HttpClientModule,
     ],
     declarations: [
         TitleLinkPipe
     ],
     exports: [
-        TitleLinkPipe
+        TitleLinkPipe,
     ],
     providers: [
         ProjectService
