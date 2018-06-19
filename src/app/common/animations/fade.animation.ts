@@ -1,67 +1,6 @@
-import { animation, useAnimation, trigger, style, transition, animate, keyframes, group, query } from '@angular/animations';
+import { trigger, transition, query, style, group, useAnimation } from '@angular/animations';
 
-const fadeSlideUpOut = animation(
-    animate('1s 0s', keyframes([
-        style({
-            opacity: 1,
-            transform: 'translate3d(0, {{ from }}, 0)',
-            offset: 0
-        }),
-        style({
-            opacity: 0,
-            transform: 'translate3d(0, -100%, 0)',
-            offset: 1
-        })
-    ])),
-    {
-        params: {
-            from: '0',
-            to: '-100%'
-        }
-    }
-);
-
-const fadeSlideUpIn = animation(
-    animate('1s 0s', keyframes([
-        style({
-            opacity: 0,
-            transform: 'translate3d(0, {{ from }}, 0)',
-            offset: 0
-        }),
-        style({
-            opacity: 1,
-            transform: 'translate3d(0, {{ to }}, 0)',
-            offset: 1
-        })
-    ])),
-    {
-        params: {
-            from: '0',
-            to: '-100%'
-        }
-    }
-);
-
-const fadeSlideDownIn = animation(
-    animate('1s 1s', keyframes([
-        style({
-            opacity: 0,
-            transform: 'translate3d(0, {{ from }}, 0)',
-            offset: 0
-        }),
-        style({
-            opacity: 1,
-            transform: 'translate3d(0, {{ to }}, 0)',
-            offset: 1
-        })
-    ])),
-    {
-        params: {
-            from: '-100%',
-            to: '0'
-        }
-    }
-);
+import { fadeSlideUpOut, fadeSlideUpIn, fadeSlideDownIn } from './animates/fade.animate';
 
 export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
     // Fade + Slide up/down to original position
@@ -75,24 +14,14 @@ export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
         group([
             // Fade + Slide up => back
             query(':leave', [
-                useAnimation(fadeSlideUpOut, {
-                    params: {
-                        from: '0',
-                        to: '-100%',
-                    }
-                })
+                useAnimation(fadeSlideUpOut, { params: { from: '0', to: '-100%', } })
             ], { optional: true }),
 
             // Fade + Slide down => in
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeSlideDownIn, {
-                    params: {
-                        from: '-100%',
-                        to: '0'
-                    }
-                }, { optional: true })
+                useAnimation(fadeSlideDownIn, { params: { from: '-100%', to: '0' } })
             ], { optional: true }),
         ])
     ])
@@ -106,23 +35,13 @@ export const fadeSlideUpAnimation = trigger('fadeSlideUpAnimation', [
 
         group([
             query(':leave', [
-                useAnimation(fadeSlideUpOut, {
-                    params: {
-                        from: '0',
-                        to: '-100%'
-                    }
-                }),
+                useAnimation(fadeSlideUpOut, { params: { from: '0', to: '-100%' } }),
             ], { optional: true }),
 
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeSlideUpIn, {
-                    params: {
-                        from: '200%',
-                        to: '0'
-                    }
-                }, { optional: true})
+                useAnimation(fadeSlideUpIn, { params: { from: '200%', to: '0' } })
             ], { optional: true })
         ])
     ])
