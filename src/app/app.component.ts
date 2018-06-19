@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 
+import { fadeSlideUpDownAnimation } from './common/animations/fade.animation';
+
 declare var $: any;
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    animations: [ fadeSlideUpDownAnimation ],
 })
 export class AppComponent {
 
@@ -17,6 +20,10 @@ export class AppComponent {
             arrows: true,
             infobar: true
         });
+    }
+
+    getState(outlet) {
+        return outlet.isActivated ? outlet.activatedRoute : '';
     }
 
 }
