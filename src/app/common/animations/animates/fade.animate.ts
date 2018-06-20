@@ -1,6 +1,6 @@
 import { animation, animate, keyframes, style } from '@angular/animations';
 
-export const fadeSlideUpOut = animation(
+export const fadeSlideOutUp = animation(
     animate('1s 0s', keyframes([
         style({
             opacity: 1,
@@ -21,7 +21,7 @@ export const fadeSlideUpOut = animation(
     }
 );
 
-export const fadeSlideUpIn = animation(
+export const fadeSlideInUp = animation(
     animate('1s 0s', keyframes([
         style({
             opacity: 0,
@@ -42,7 +42,7 @@ export const fadeSlideUpIn = animation(
     }
 );
 
-export const fadeSlideDownIn = animation(
+export const fadeSlideInDown = animation(
     animate('1s 1s', keyframes([
         style({
             opacity: 0,
