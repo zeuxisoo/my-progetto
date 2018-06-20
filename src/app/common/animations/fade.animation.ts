@@ -1,30 +1,27 @@
-import { trigger, transition, query, style, group, useAnimation } from '@angular/animations';
+import { trigger, transition, group, query, style, useAnimation } from '@angular/animations';
 
-import { fadeSlideOutUp, fadeSlideInUp, fadeSlideInDown } from './animates/fade.animate';
+import { fadeOutUp, fadeInDown, fadeInUp } from 'ng-animate';
 
 export const fadeSlideUpDownAnimation = trigger('fadeSlideUpDownAnimation', [
-    // Fade + Slide up/down to original position
     transition('* => *', [
-        // Default state, make it transparent
+        // Default `void => *` etner state is transparent
         query(':enter', [
             style({ opacity: 0 })
         ], { optional: true }),
 
-        // Group animations make it parallel run
+        // Rolling between fade slide up and fade slide down
         group([
-            // Fade + Slide up => back
             query(':leave', [
-                useAnimation(fadeSlideOutUp, { params: { from: '0', to: '-100%', } })
+                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } })
             ], { optional: true }),
 
-            // Fade + Slide down => in
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeSlideInDown, { params: { from: '-100%', to: '0' } })
+                useAnimation(fadeInDown, { params: { a: '-100%', b: '0', delay: '1' } })
             ], { optional: true }),
-        ])
-    ])
+        ]);
+    ]);
 ]);
 
 export const fadeSlideUpAnimation = trigger('fadeSlideUpAnimation', [
@@ -35,13 +32,13 @@ export const fadeSlideUpAnimation = trigger('fadeSlideUpAnimation', [
 
         group([
             query(':leave', [
-                useAnimation(fadeSlideOutUp, { params: { from: '0', to: '-100%' } }),
+                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } }),
             ], { optional: true }),
 
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeSlideInUp, { params: { from: '200%', to: '0' } })
+                useAnimation(fadeInUp, { params: { a: '100%', b: '0', delay: '1' } })
             ], { optional: true })
         ])
     ])
