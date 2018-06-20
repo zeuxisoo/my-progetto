@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
-import { Observable } from "rxjs/Observable";
-import { map } from "rxjs/operators";
+import { Observable } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 
 import { BaseService } from './base.service';
 import { Project } from '../models/project.model';
@@ -15,7 +15,8 @@ export class ProjectService extends BaseService {
                 return (projects as Project[]).sort((a, b) => {
                     return (+b.id) - (+a.id)
                 });
-            })
+            }),
+            catchError(this.handleError('getProjects', {}))
         );
     }
 
@@ -23,7 +24,8 @@ export class ProjectService extends BaseService {
         return this.getProjects().pipe(
             map(projects => {
                 return projects.filter(project => project.id == id)[0]
-            })
+            }),
+            catchError(this.handleError('getProject', {}))
         );
     }
 
