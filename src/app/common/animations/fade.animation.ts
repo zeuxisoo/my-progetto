@@ -36,8 +36,8 @@ export const fadeUpThenDownAnimation = trigger('fadeUpThenDownAnimation', [
 
                 useAnimation(fadeInDown, { params: { a: '-100%', b: '0', delay: '1' } })
             ], { optional: true }),
-        ]);
-    ]);
+        ])
+    ])
 ]);
 
 
