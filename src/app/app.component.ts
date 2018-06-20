@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { fadeSlideUpDownAnimation } from './common/animations/fade.animation';
+import { fadeUpThenUpAnimation } from './common/animations/fade.animation';
 
 declare var $: any;
 
@@ -8,7 +8,7 @@ declare var $: any;
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    animations: [ fadeSlideUpDownAnimation ],
+    animations: [ fadeUpThenUpAnimation ],
 })
 export class AppComponent {
 
