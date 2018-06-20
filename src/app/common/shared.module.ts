@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ProjectService } from './services/project.service';
 
 import { TitleLinkPipe } from './pipes/project.pipe';
+
+import { AppErrorsHandler } from './handlers/app-error.handler';
 
 @NgModule({
     imports: [
@@ -16,7 +18,11 @@ import { TitleLinkPipe } from './pipes/project.pipe';
         TitleLinkPipe,
     ],
     providers: [
-        ProjectService
+        ProjectService,
+        {
+            provide: ErrorHandler,
+            useClass: AppErrorsHandler,
+        }
     ]
 })
 
