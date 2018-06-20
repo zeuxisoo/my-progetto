@@ -1,3 +1,6 @@
+// Currently, this is file is not in use.
+// because the animates in the project has been changed to the `ng-animate` package.
+
 import { animation, animate, keyframes, style } from '@angular/animations';
 
 export const fadeSlideOutUp = animation(
