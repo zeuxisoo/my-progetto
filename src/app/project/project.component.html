@@ -21,6 +21,11 @@
     </div>
 
     <ng-template #loading>
-        Loading project data ... ...
+        <div *ngIf="project === null">
+            Loading project data ... ...
+        </div>
+        <div *ngIf="project === undefined">
+            Cannot find the project data by id
+        </div>
     </ng-template>
 </div>
