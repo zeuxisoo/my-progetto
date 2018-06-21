@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { fadeUpThenUpAnimation } from './common/animations/fade.animation';
+import { fadeUpThenUpAnimation } from './common/animations/router.animation';
 
 declare var $: any;
 
