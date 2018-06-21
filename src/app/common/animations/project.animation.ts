@@ -1,7 +1,7 @@
 import { trigger, transition, query, style, stagger, useAnimation, state, animate } from '@angular/animations';
 import { fadeInUp, bounceIn } from 'ng-animate';
 
-export const homeProjectItemAnimation = trigger('homeProjectItemAnimation', [
+export const projectItemAnimation = trigger('projectItemAnimation', [
     transition("* => *", [
         query(':enter', [
             style({ opacity: 0 }),
@@ -13,7 +13,7 @@ export const homeProjectItemAnimation = trigger('homeProjectItemAnimation', [
     ])
 ]);
 
-export const projectProjectPhotoThumbAnimation = trigger('projectProjectPhotoThumbAnimation', [
+export const projectPhotoThumbAnimation = trigger('projectPhotoThumbAnimation', [
     transition("* => *", [
         query(':enter', [
             style({ opacity: 0 }),
@@ -24,7 +24,7 @@ export const projectProjectPhotoThumbAnimation = trigger('projectProjectPhotoThu
     ])
 ]);
 
-export const projectPreviousBackButtonAnimation = trigger('projectPreviousBackButtonAnimation', [
+export const previousPageButtonAnimation = trigger('previousPageButtonAnimation', [
     // Set default hide state
     state('hide', style({ opacity: 0 })),
 

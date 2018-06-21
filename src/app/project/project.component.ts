@@ -5,13 +5,13 @@ import { Location } from '@angular/common';
 import { Project } from '../common/models/project.model';
 import { ProjectService } from '../common/services/project.service';
 
-import { projectProjectPhotoThumbAnimation, projectPreviousBackButtonAnimation } from '../common/animations/project.animation';
+import { projectPhotoThumbAnimation, previousPageButtonAnimation } from '../common/animations/project.animation';
 
 @Component({
     selector: 'app-project',
     templateUrl: './project.component.html',
     styleUrls: ['./project.component.scss'],
-    animations: [ projectProjectPhotoThumbAnimation, projectPreviousBackButtonAnimation ]
+    animations: [ projectPhotoThumbAnimation, previousPageButtonAnimation ]
 })
 export class ProjectComponent implements OnInit {
 

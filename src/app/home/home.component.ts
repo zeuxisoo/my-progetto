@@ -4,13 +4,13 @@ import { trigger, transition, query, style, stagger, animate } from '@angular/an
 import { Project } from '../common/models/project.model';
 import { ProjectService } from '../common/services/project.service';
 
-import { homeProjectItemAnimation } from '../common/animations/project.animation';
+import { projectItemAnimation } from '../common/animations/project.animation';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    animations: [ homeProjectItemAnimation ]
+    animations: [ projectItemAnimation ]
 })
 export class HomeComponent implements OnInit {
 

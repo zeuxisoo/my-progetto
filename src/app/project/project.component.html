@@ -5,7 +5,7 @@
             <div class="text-muted mt-2 mb-2 project-description" *ngIf="project.description">
                 {{ project.description }}
             </div>
-            <div class="row" [@projectProjectPhotoThumbAnimation]="projectPhotoThumbsLength" (@projectProjectPhotoThumbAnimation.done)="photoThumbAnimationDone($event)">
+            <div class="row" [@projectPhotoThumbAnimation]="projectPhotoThumbsLength" (@projectPhotoThumbAnimation.done)="photoThumbAnimationDone($event)">
                 <div
                     class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3 block"
                     *ngFor="let thumb of project.photo.thumbs; index as i">
@@ -14,7 +14,7 @@
                     </a>
                 </div>
             </div>
-            <div class="row mt-3" [@projectPreviousBackButtonAnimation]='previousPageButtonState'>
+            <div class="row mt-3" [@previousPageButtonAnimation]='previousPageButtonState'>
                 <div class="col-12">
                     <button type="button" class="btn btn-light previous-page-button" (click)="previousPage()">Back</button>
                 </div>
