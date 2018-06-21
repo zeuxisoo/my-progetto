@@ -1,7 +1,0 @@
-.main {
-    position: relative;
-
-    /deep/ router-outlet ~ * {
-        position: absolute;
-    }
-}

@@ -18,8 +18,6 @@
         </ul>
     </div>
 </nav>
-<div class="container">
-    <div class="main" [@fadeUpThenUpAnimation]="getState(o)">
-        <router-outlet #o="outlet"></router-outlet>
-    </div>
+<div class="main" [@fadeUpThenUpAnimation]="getState(o)">
+    <router-outlet #o="outlet"></router-outlet>
 </div>

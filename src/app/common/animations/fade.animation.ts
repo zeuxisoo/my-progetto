@@ -21,20 +21,18 @@ import { fadeOutUp, fadeInDown, fadeInUp } from 'ng-animate';
 export const fadeUpThenDownAnimation = trigger('fadeUpThenDownAnimation', [
     transition('* => *', [
         // Default `void => *` etner state is transparent
-        query(':enter', [
-            style({ opacity: 0 })
-        ], { optional: true }),
+        query(':enter, :leave', style({ position: 'fixed', width: '100%', }), { optional: true }),
 
-        // Rolling between fade slide up and fade slide down
+        // Rolling between fade slide up and fade slide down, executes in parallel
         group([
-            query(':leave', [
-                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } })
-            ], { optional: true }),
-
             query(':enter', [
                 style({ opacity: 0 }),
 
                 useAnimation(fadeInDown, { params: { a: '-100%', b: '0', delay: '1' } })
+            ], { optional: true }),
+
+            query(':leave', [
+                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } })
             ], { optional: true }),
         ])
     ])
@@ -61,20 +59,19 @@ export const fadeUpThenDownAnimation = trigger('fadeUpThenDownAnimation', [
 
 export const fadeUpThenUpAnimation = trigger('fadeUpThenUpAnimation', [
     transition('* => *', [
-        query(':enter', [
-            style({ opacity: 0 })
-        ], { optional: true }),
+        query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
 
+        // executes in parallel
         group([
-            query(':leave', [
-                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } }),
-            ], { optional: true }),
-
             query(':enter', [
                 style({ opacity: 0 }),
 
                 useAnimation(fadeInUp, { params: { a: '100%', b: '0', delay: '1' } })
-            ], { optional: true })
+            ], { optional: true }),
+
+            query(':leave', [
+                useAnimation(fadeOutUp, { params: { a: '0', b: '-100%' } })
+            ], { optional: true }),
         ])
     ])
-])
+]);
