@@ -5,18 +5,18 @@
             <div class="text-muted mt-2 mb-2 project-description" *ngIf="project.description">
                 {{ project.description }}
             </div>
-            <div class="row">
+            <div class="row" [@projectProjectPhotoThumbAnimation]="projectPhotoThumbsLength" (@projectProjectPhotoThumbAnimation.done)="photoThumbAnimationDone($event)">
                 <div
-                    class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3"
+                    class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3 block"
                     *ngFor="let thumb of project.photo.thumbs; index as i">
                     <a href="{{ project.photo.larges[i] }}" data-fancybox="gallery">
                         <img class="img-thumbnail project-thumb" src="{{ thumb }}" alt="{{ thumb }}">
                     </a>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3" [@projectPreviousBackButtonAnimation]='previousPageButtonState'>
                 <div class="col-12">
-                    <button type="button" class="btn btn-light" (click)="previousPage()">Back</button>
+                    <button type="button" class="btn btn-light previous-page-button" (click)="previousPage()">Back</button>
                 </div>
             </div>
         </div>

@@ -5,14 +5,20 @@ import { Location } from '@angular/common';
 import { Project } from '../common/models/project.model';
 import { ProjectService } from '../common/services/project.service';
 
+import { projectProjectPhotoThumbAnimation, projectPreviousBackButtonAnimation } from '../common/animations/project.animation';
+
 @Component({
     selector: 'app-project',
     templateUrl: './project.component.html',
-    styleUrls: ['./project.component.scss']
+    styleUrls: ['./project.component.scss'],
+    animations: [ projectProjectPhotoThumbAnimation, projectPreviousBackButtonAnimation ]
 })
 export class ProjectComponent implements OnInit {
 
     public project: Project;
+    public projectPhotoThumbsLength: number;
+
+    public previousPageButtonState: string = 'hide';
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -29,11 +35,16 @@ export class ProjectComponent implements OnInit {
             })
             .subscribe(project => {
                 this.project = project;
+                this.projectPhotoThumbsLength = project.photo.thumbs.length;
             });
     }
 
     previousPage() {
         this.location.back();
+    }
+
+    photoThumbAnimationDone(event) {
+        this.previousPageButtonState = (this.previousPageButtonState === 'hide' ? 'show' : 'hide');
     }
 
 }
