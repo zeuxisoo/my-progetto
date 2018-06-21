@@ -1,7 +1,7 @@
 <div id="home">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3" *ngFor="let project of projects">
+        <div class="row" [@homeProjectItemAnimation]="projectsLength">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center mt-3 project-item" *ngFor="let project of projects">
                 <a routerLink="/p/{{ project.id }}">
                     <img class="img-thumbnail project-thumb" src="{{ project.photo.thumbs[0] }}" alt="{{ project.title }}">
                 </a>
