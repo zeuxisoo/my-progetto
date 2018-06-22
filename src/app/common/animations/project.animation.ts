@@ -6,7 +6,7 @@ export const projectItemAnimation = trigger('projectItemAnimation', [
         query(':enter', [
             style({ opacity: 0 }),
 
-            stagger(300, [
+            stagger(220, [
                 useAnimation(fadeInUp)
             ])
         ], { optional: true })
@@ -17,7 +17,7 @@ export const projectPhotoThumbAnimation = trigger('projectPhotoThumbAnimation', 
     transition("* => *", [
         query(':enter', [
             style({ opacity: 0 }),
-            stagger(300, [
+            stagger(220, [
                 useAnimation(fadeInUp)
             ])
         ], { optional: true })
