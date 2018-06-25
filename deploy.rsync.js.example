@@ -1,0 +1,39 @@
+const Rsync = require('rsync');
+
+//
+const source_directory      = `${__dirname}/dist/progetto/`;
+const destination_directory = "username@IP:/path/to/project/directory/";
+const shell_command         = "ssh -p 22 -i ~/.ssh/id_rsa.file";
+
+//
+var rsync = new Rsync();
+
+rsync
+    .shell(shell_command)
+    .flags('Pv')            // --partial --progress --verbose
+    .archive()              // -a
+    .compress()             // -z
+    .recursive()            // -r
+    .delete()               // --delete
+    .source(source_directory)
+    .destination(destination_directory);
+
+//
+console.log('==> Command ==> ');
+console.log(`${rsync.command()}`);
+console.log(`==> Running ==>`);
+
+//
+rsync.output(
+    progress => console.log(`${progress}`),
+    error => console.log(`Output Error: ${error}`)
+);
+
+//
+rsync.execute((err, code, cmd) => {
+    if (err) {
+        console.log(`Error: ${err}`);
+    }else{
+        console.log('Success!');
+    }
+});

@@ -41,3 +41,4 @@ Thumbs.db
 # Custom
 /src/assets/data/works
 /src/assets/data/projects.json
+/deploy.rsync.js
