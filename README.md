@@ -1,27 +1,61 @@
 # Progetto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Web application to record my projects
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install the dependencies
 
-## Code scaffolding
+    npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run the develop server
 
-## Build
+    make dev
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Generate the project data
 
-## Running unit tests
+    make data
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Generate the project photos and thumbs
 
-## Running end-to-end tests
+    make resize
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Release
 
-## Further help
+Run the command
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    make dist
+
+## Deploy
+
+Edit the deploy config
+
+    cp deploy.rsync.js.example deploy.rsync.js
+    vim deploy.rsync.js
+
+Run the command
+
+    make deploy
+
+## Add Project
+
+Make project directory
+
+    mkdir assets/data/works/[Number]
+
+Copy the default project info into related project directory
+
+    cp assets/data/works/default-info.yaml assets/data/works/[Number]/info.yaml
+
+Edit the project info file
+
+    vim assets/data/works/[Number]/info.yaml
+
+Place the photos into project directory (The image must start with 01-99.png)
+
+    cp -Rf /path/to/my/project/screenshorts/*.png assets/data/works/[Number]/
+
+The run the following command to generate projects data, photos and thumbs again
+
+    make data
+    make resize
