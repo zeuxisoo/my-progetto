@@ -28,7 +28,7 @@ export const fadeUpThenDownAnimation = trigger('fadeUpThenDownAnimation', [
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeInDown, { params: { a: '-100%', b: '0', delay: '1' } })
+                useAnimation(fadeInDown, { params: { a: '-100%', b: '0', delay: '0.7' } })
             ], { optional: true }),
 
             query(':leave', [
@@ -66,7 +66,7 @@ export const fadeUpThenUpAnimation = trigger('fadeUpThenUpAnimation', [
             query(':enter', [
                 style({ opacity: 0 }),
 
-                useAnimation(fadeInUp, { params: { a: '100%', b: '0', delay: '1' } })
+                useAnimation(fadeInUp, { params: { a: '100%', b: '0', delay: '0.7' } })
             ], { optional: true }),
 
             query(':leave', [
