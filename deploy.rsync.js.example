@@ -11,10 +11,10 @@ var rsync = new Rsync();
 rsync
     .shell(shell_command)
     .flags('Pv')            // --partial --progress --verbose
-    .archive()              // -a
-    .compress()             // -z
-    .recursive()            // -r
-    .delete()               // --delete
+    .archive()              // -a, Recursive send the file and keep the file property
+    .compress()             // -z, Compress during transfer
+    .recursive()            // -r, Recursive send the sub directory
+    .delete()               // --delete, Remove destination file when this file is not exists in source
     .source(source_directory)
     .destination(destination_directory);
 
