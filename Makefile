@@ -18,6 +18,7 @@ build: clean data resize
 	@npm run build
 
 dist: clean data resize
+	@echo
 	@./node_modules/.bin/ng build --prod
 
 data:

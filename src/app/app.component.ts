@@ -12,6 +12,8 @@ declare var $: any;
 })
 export class AppComponent {
 
+    title = 'my-progetto';
+
     ngAfterViewInit() {
         $("[data-fancybox]").fancybox({
             animationEffect: 'zoom',

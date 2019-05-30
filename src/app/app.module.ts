@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
 import { ToastrModule } from 'ngx-toastr';
 
-import { appRoutes } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,8 +26,7 @@ import { SharedModule } from './common/shared.module';
             preventDuplicates: true,
         }),
         SharedModule,
-        RouterModule,
-        RouterModule.forRoot(appRoutes)
+        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
