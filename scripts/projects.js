@@ -18,6 +18,8 @@ let works = [];
 
 fs.readdirSync(works_directory).filter(work_directory => {
     return isDirectory(works_directory + "/" + work_directory);
+}).filter(work_directory => {
+    return fs.existsSync(`${works_directory}/${work_directory}/info.yaml`) === true;
 }).forEach(work_directory => {
     const work_folder = works_directory + "/" + work_directory;
     const info_path   = work_folder + "/info.yaml";
@@ -47,6 +49,12 @@ fs.readdirSync(works_directory).filter(work_directory => {
         "link": info_item.link,
         "photo": photo
     });
+
+    console.log(`Read project: ${work_directory}`);
+});
+
+works.sort((a, b) => {
+    return a.id - b.id;
 });
 
 fs.writeFileSync(
